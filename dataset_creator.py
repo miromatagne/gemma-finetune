@@ -1,6 +1,6 @@
 """
 Cellar text and eurovoc extraction
-	python update.py 10000 dataset.jsonl
+	python dataset_creator.py 10000 dataset.jsonl
 will extract for the last 10,000 days text in english and eurovoc labels in the JSON line file.
 requirements:
 beautifulsoup4==4.12.2
@@ -245,7 +245,7 @@ if __name__ == '__main__':
             ofiles[ym] = open(f"data/data_{ym}.jsonl", 'w')
         try:
             for d in get_docs_text(d):
-                ofiles[ym].write(json.dumps(d) + '\n')
+                ofiles[ym].write(json.dumps(d, ensure_ascii=False) + '\n')
                 ofiles[ym].flush()
         except Exception as e:
             log.error('Day ' + str(d) + ' ' + str(e))
