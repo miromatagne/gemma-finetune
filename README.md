@@ -1,3 +1,3 @@
 # gemma-finetune
 
-Gemma 2 7B finetuning
+Gemma 2 9B finetuning
